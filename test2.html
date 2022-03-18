@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+
+<div>Users:</div>
+<div id="users">
+
+</div>
+<button class="join-event">Event beitreten</button>
+<button class="leave-event">Event verlassen</button>
+
+<script>
+    const update_users = (data) => {
+        document.getElementById('users').innerHTML = '';
+
+        data.event_user.map((i) => i.user).forEach((user) => {
+            const div = document.createElement('i');
+            div.innerHTML = user.user_name;
+            document.getElementById('users').appendChild(div);
+        });
+    }
+
+
+    window.onload = () => {
+        const socket = io('http://127.0.0.1:4000?authorization=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVBaDlsaHBwTi1wMC1NX3h1SDV6ayJ9.eyJpc3MiOiJodHRwczovL2Rldi10aHpvYmJmci51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjIxZjdiZTM2ZmY3ODkwMDY4NWM2YjVlIiwiYXVkIjpbImh0dHBzOi8vd3d3LmFjY3VyYXRlLmNvbS8iLCJodHRwczovL2Rldi10aHpvYmJmci51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjQ3NTkxMzg5LCJleHAiOjE2NDc2Nzc3ODksImF6cCI6IkxQRGtweWNiY1E2amhOdUJwazIzMXM3M3R2NWpON1BKIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCJ9.N8xXgWsUuD5SdSg5RrlXte6q7fvg99RcWaVZT-ecw_FtiCAk7jBpBubmKiS9a60uckCXU-eKinq8EykXFpz_HY8Lc3aA_qZGlD5Pcz3oyidq5NCT5fECnGspkudWOWVyBnqxjceFdhaffqY_l3ccLn1gPP9VEg_B5KJwDhYhSjDEooftKAIldOR7Vmgcxz_-qGBV5cR_NoyMLWlmjp4qsGetu07sXem7Xif6UEAFPbs0nzzb5aRDX9fNdBPhfhWK7omTF1RCsgWqwWSeU6PEOpb-84vu7DyEcA8aw556LBNOq4u4v9VgUINqY3poWJIzPGAW1_rSUSIlL4vm0Db4uA');
+
+        document.querySelector('.join-event').onclick = () => {
+            socket.emit('event.room.join', {
+                eventId: 'cl0wc4jc700085m2o3f64gr6t'
+            });
+        };
+
+        document.querySelector('.leave-event').onclick = () => {
+            socket.emit('event.room.leave', {
+                eventId: 'cl0wc4jjoinc700085m2o3f64gr6t'
+            });
+        };
+
+        socket.on('event.refresh', update_users);
+    }
+</script>
+</body>
+</html>

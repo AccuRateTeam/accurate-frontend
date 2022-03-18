@@ -12,6 +12,7 @@ const authClient = async () => {
 const user = async () => {
     const auth = await authClient();
     if (!(await auth.isAuthenticated())) {
+        console.log('Test')
         await auth.getTokenSilently();
     }
     const user = auth.getUser();
