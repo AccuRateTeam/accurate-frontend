@@ -12,7 +12,7 @@
 
             <div class="form-group mb-3">
                 <label for="username" class="small fw-bold">Nutzername</label>
-                <input type="text" class="form-control" name="username" id="username">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Max">
             </div>
 
             <div class="form-group mb-3">
@@ -30,7 +30,7 @@
     auth.addEventListener('ready', async ({detail: authClient}) => {
         const user = await authClient.getUser();
 
-        $('[name=username]').val(user.name ?? user.nickname);
+        $('[name=username]').val(user.name.includes('@') ? '' : user.name);
         $('[name=email]').val(user.email);
     });
 

@@ -29,16 +29,6 @@
                 </select>
             </div>
 
-            <div class="form-group mb-2">
-                <label for="distance" class="small fw-bold">Pflock</label>
-                <select name="distance" id="distance" class="form-control">
-                    <option selected disabled>-- Pflock wählen --</option>
-                    <option value="1">Rot</option>
-                    <option value="2">Gelb</option>
-                    <option value="3">Grün</option>
-                </select>
-            </div>
-
             <div class="d-flex flex-column mt-4">
                 <button class="btn btn-primary">
                     Erstellen

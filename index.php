@@ -48,7 +48,7 @@ if (!isset($routes[$page])) {
             <div class="auth-wrapper">
                 <button class="btn btn-primary login-button">Login</button>
                 <small>
-                    <span class="username" style="display:none"></span><a class="logout-button text-reset text-decoration-none">, <span class="text-primary">Logout</span></a>
+                    <span class="username" style="display:none"></span><a class="logout-button text-reset text-decoration-none"> <span class="text-primary">Logout</span></a>
                 </small>
             </div>
         </div>

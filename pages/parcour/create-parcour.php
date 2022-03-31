@@ -47,6 +47,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Distanzen</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +64,19 @@
 </div>
 <script>
     api.addEventListener('ready', async ({detail: apiClient}) => {
-        const targets = [];
+        let targets = [];
+
+        window.removeTarget = (id) => {
+            targets = targets.filter((_, i) => i !== id);
+            updateTable();
+        }
+
+        const updateTable = () => {
+            $('.target-table tbody').html('');
+            targets.forEach((target, i) => {
+                $('.target-table tbody').append(`<tr><td>${target.name}</td><td>${[target.distance_1, target.distance_2, target.distance_3].join(', ')}</td><td><a href="#" onclick="removeTarget(${i})"/>Entfernen</td></tr>`);
+            });
+        }
 
         // init tablesort
         $('.tablesort tbody').sortable();
@@ -84,7 +97,12 @@
             };
 
             targets.push(target);
-            $('.target-table tbody').append(`<tr><td>${target.name}</td><td>${[target.distance_1, target.distance_2, target.distance_3].join(', ')}</td></tr>`);
+            updateTable();
+
+            elements.name.val('');
+            elements.distance_1.val('');
+            elements.distance_2.val('');
+            elements.distance_3.val('');
         });
 
         // handle form submit
@@ -94,14 +112,17 @@
             apiClient.parcour.create({
                 parcour_name: $('[name=parcour_name]').val(),
             }).then((parcour) => {
-                targets.forEach((target) => {
-                    apiClient.target.create({
+                targets.forEach(async (target) => {
+                    await apiClient.target.create({
                         target_name: target.name,
                         target_distance1: parseInt(target.distance_1.replace(/\D/g,'')),
                         target_distance2: parseInt(target.distance_2.replace(/\D/g,'')),
                         target_distance3: parseInt(target.distance_3.replace(/\D/g,'')),
                     });
                 });
+
+                toastr.success('Parkour wurd erfolgreich erstellt.');
+                setTimeout(() => window.location.href = '/', 1000);
             }).catch((err) => {
                 if (err.response) {
                     toastr.error(err.response.data.message);
