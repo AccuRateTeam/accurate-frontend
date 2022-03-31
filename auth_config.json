@@ -1,6 +1,0 @@
-{
-  "domain": "dev-i0-rmfoq.us.auth0.com",
-  "clientId": "KaYkcJboWxnPEmiHqcmI6Ka1YdqhS8L3",
-  "audience": "https://www.accurate.com/",
-  "scope": "openid profile email"
-}

@@ -11,6 +11,34 @@ html, body {
   height: 100%;
 }
 
+nav {
+  background-color: #fafafa;
+  padding: 10px 0;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+
+  .username {
+    font-size: 14px;
+  }
+}
+
 .btn {
   &-primary {
     color: #fff !important;
