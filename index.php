@@ -1,10 +1,11 @@
 <?php
 $routes = [
     '/' => './pages/home.php',
-    '/event/create-event' => './pages/event/create-event.php',
-    '/event/join-event' => './pages/event/join-event.php',
-    '/event/event-overview' => './pages/event/event-overview.php',
-    '/user/create-profile' => './pages/user/create-profile.php',
+    '/event/event-erstellen' => './pages/event/create-event.php',
+    '/event/event-beitreten' => './pages/event/join-event.php',
+    '/event/event-uebersicht' => './pages/event/event-overview.php',
+    '/parkour/parkour-erstellen' => './pages/parcour/create-parcour.php',
+    '/profil/profil-erstellen' => './pages/user/create-profile.php',
 ];
 $page = '/' . rtrim($_GET['page'], '/');
 
@@ -19,11 +20,12 @@ if (!isset($routes[$page])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPArchery</title>
 
-
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css"/>
 
     <script src="/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/assets/plugins/touch-punch/touch-punch.min.js"></script>
     <script src="/assets/plugins/toastr/toastr.min.js"></script>
     <script src="/assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="/assets/js/accurate-sdk.min.js"></script>
@@ -35,7 +37,7 @@ if (!isset($routes[$page])) {
     <div class="spinner-border text-primary mt-2" style="width:30px;height:30px;" role="status"></div>
 </div>
 
-<div class="container">
+<div class="container sticky-top nav-container">
     <nav class="row">
         <div class="col-6 d-flex align-items-center">
             <a href="/">
@@ -45,7 +47,9 @@ if (!isset($routes[$page])) {
         <div class="col-6 d-flex justify-content-end">
             <div class="auth-wrapper">
                 <button class="btn btn-primary login-button">Login</button>
-                <div class="username" style="display:none"></div>
+                <small>
+                    <span class="username" style="display:none"></span><a class="logout-button text-reset text-decoration-none">, <span class="text-primary">Logout</span></a>
+                </small>
             </div>
         </div>
     </nav>
@@ -56,7 +60,6 @@ if (!isset($routes[$page])) {
         <?php include $routes[$page] ?>
     </div>
 </div>
-
 
 </body>
 </html>

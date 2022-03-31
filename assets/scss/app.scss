@@ -11,9 +11,19 @@ html, body {
   height: 100%;
 }
 
-nav {
-  background-color: #fafafa;
-  padding: 10px 0;
+.nav-container {
+  z-index: 10;
+
+  nav {
+    background-color: #fafafa;
+    padding: 10px 0;
+  }
+}
+
+input, textarea {
+  &::placeholder {
+    color: #aaa !important;
+  }
 }
 
 .loader {
@@ -37,6 +47,10 @@ nav {
   .username {
     font-size: 14px;
   }
+}
+
+.target-table {
+  font-size: 14px;
 }
 
 .btn {

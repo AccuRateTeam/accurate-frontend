@@ -1,3 +1,6 @@
+<script>
+    window.createProfilePage = true;
+</script>
 <div class="container">
     <main class="d-flex flex-column h-100 py-4 bg-white">
         <form id="createProfileForm" class="h-100">

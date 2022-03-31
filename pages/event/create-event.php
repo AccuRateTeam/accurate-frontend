@@ -1,6 +1,6 @@
 <div class="container">
     <main class="d-flex flex-column h-100 bg-white">
-        <form action="" class="h-100">
+        <form id="createEventForm" class="h-100">
             <div class="my-3 text-center bg-theme rounded overflow-hidden">
                 <div class="py-5 bg-overlay">
                     <h1 class="m-0 text-white">Event Erstellen</h1>
@@ -8,16 +8,14 @@
             </div>
 
             <div class="form-group mb-2">
-                <label for="title" class="small fw-bold">Event Name</label>
-                <input type="text" class="form-control" name="title" id="title">
+                <label for="event_name" class="small fw-bold">Event Name</label>
+                <input type="text" class="form-control" name="event_name" id="event_name">
             </div>
 
             <div class="form-group mb-2">
                 <label for="parcour" class="small fw-bold">Parkour Auswahl</label>
                 <select name="parcour" id="parcour" class="form-control">
                     <option selected disabled>-- Parkour wählen --</option>
-                    <option value="1">Ampfelwang</option>
-                    <option value="2">Froschberg</option>
                 </select>
             </div>
 
@@ -49,3 +47,27 @@
         </form>
     </main>
 </div>
+<script>
+    api.addEventListener('ready', async ({detail: apiClient}) => {
+        // fetch parcours
+        const parcours = await apiClient.parcour.list();
+        parcours.forEach((parcour) => {
+            $('#parcour').append($(`<option value="${parcour.parcour_id}">${parcour.parcour_name}</option>`));
+        });
+
+        // handle form submit
+        $('#createEventForm').on('submit', (e) => {
+            e.preventDefault();
+
+            // create event and redirect
+            apiClient.event.create({
+                event_name: $('[name=event_name]').val(),
+                parcour_id: $('[name=parcour]').val()
+            }).then((event) => {
+                window.location.href = '/event/event-uebersicht?id=' + event.event_id
+            }).catch((err) => {
+                toastr.error(err.response.data.message);
+            });
+        });
+    });
+</script>

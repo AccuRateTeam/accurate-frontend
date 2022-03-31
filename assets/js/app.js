@@ -43,7 +43,7 @@ window.onload = async function () {
     }
 
     if (isAuthenticated) {
-        const apiClient = await Accurate.ApiClient.create(config.apiUrl, await authClient.getAccessToken());
+        const apiClient = await Accurate.ApiClient.create(config.apiUrl, config.socketUrl, await authClient.getAccessToken());
 
         // call api ready event
         window.api.dispatchEvent(new CustomEvent('ready', {
@@ -51,13 +51,14 @@ window.onload = async function () {
         }));
 
         // redirect user to create profile page
-        window.user = await apiClient.user.me().catch(() => {
-            if (!window.createProfilePage) {
-                window.location.href = '/user/create-profile';
+        apiClient.user.me().then((user) => {
+            window.user = user;
+            elements.auth.username.text(window.user.user_name);
+            elements.auth.username.show();
+        }).catch(() => {
+            if (!window.location.href.includes('profil-erstellen')) {
+                window.location.href = '/profil/profil-erstellen';
             }
         });
-
-        elements.auth.username.text(window.user.user_name);
-        elements.auth.username.show();
     }
 }

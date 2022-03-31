@@ -10770,9 +10770,16 @@ html, body {
   height: 100%;
 }
 
-nav {
+.nav-container {
+  z-index: 10;
+}
+.nav-container nav {
   background-color: #fafafa;
   padding: 10px 0;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #aaa !important;
 }
 
 .loader {
@@ -10794,6 +10801,10 @@ nav {
   align-items: center;
 }
 .auth-wrapper .username {
+  font-size: 14px;
+}
+
+.target-table {
   font-size: 14px;
 }
 

@@ -11,7 +11,7 @@
 <div id="users">
 
 </div>
-<button class="join-event">Event beitreten</button>
+<button class="event-beitreten">Event beitreten</button>
 <button class="leave-event">Event verlassen</button>
 
 <script>
@@ -29,7 +29,7 @@
     window.onload = () => {
         const socket = io('http://127.0.0.1:4000?authorization=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVBaDlsaHBwTi1wMC1NX3h1SDV6ayJ9.eyJpc3MiOiJodHRwczovL2Rldi10aHpvYmJmci51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDU3MjA4NTUyNjgyNTc1ODg5NTciLCJhdWQiOlsiaHR0cHM6Ly93d3cuYWNjdXJhdGUuY29tLyIsImh0dHBzOi8vZGV2LXRoem9iYmZyLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NDc2MjYwNjUsImV4cCI6MTY0NzcxMjQ2NSwiYXpwIjoiTFBEa3B5Y2JjUTZqaE51QnBrMjMxczczdHY1ak43UEoiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIn0.BscGLSZKUPh_Of5LXD-HAuCvMKR2-H-UGGPNqXyEjErD9-cuP2CiGrOnfqObHYB9zs3vbYSY25n4vIb8YOWkCqZHqc6UMygifyek86HrLaWpAqAtF3R0GlYEu6BbW-FJFdnvfBcT6H85YJZlkOLzqRbuwJI-DAW0UsIvtqd_oeLcVeSM1U4EQZBI1JA6YMtVjaHeNE9m4jv2ybNiU_itfiMx3HrbXEUPimJJvnlSuu7XaBnIE3movyLf-KFjb3SRgRDydwxyio8r042MixJ7pW45597jf9y7-U6ZIt-_7vj4dwDn8D5TaVGN1VtrwkByw1FKDu5Y6PaXtRdiZLXaMA');
 
-        document.querySelector('.join-event').onclick = () => {
+        document.querySelector('.event-beitreten').onclick = () => {
             socket.emit('event.room.join', {
                 event_id: 'cl0wqe3gt00411zq7iptelta4'
             });
