@@ -10772,6 +10772,18 @@ html, body {
 
 .btn-primary {
   color: #fff !important;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.bg-theme {
+  background-image: url("../img/home.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .home-container {
