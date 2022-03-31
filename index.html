@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPArchery</title>
-  </head>
 
-  <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
 
-  <script src = "/js/accurate-sdk.min.js">
-
-  </script>
-  <body>
-    <h3 id = "user_name">
-    </h3>
-    <button id = "btn_in">
-      login
-    </button>
-    <button id = "btn_out">
-      logout
-    </button>
-
-    
-
+    <script src="/assets/plugins/tailwind/tailwind.min.js"></script>
     <script>
-      window.onload = async function(){
-        const authClient = await Accurate.AuthClient.create('dev-i0-rmfoq.us.auth0.com', 'KaYkcJboWxnPEmiHqcmI6Ka1YdqhS8L3', 'https://www.accurate.com/');
-        
-        // login button
-        document.getElementById("btn_in").onclick = async function(){await authClient.authorize('http://localhost:3000');}
-
-        // logout button
-        document.getElementById("btn_out").onclick = async function(){await authClient.logout('http://localhost:3000');}
-
-        // check if user is logged in 
-        if(await authClient.isAuthenticated()){
-          const apiClient = await Accurate.ApiClient.create('http://localhost:5000', await authClient.getAccessToken());
-
-          // todo: user laden und nicht createn
-          // const user = await apiClient.user.create({
-          //   user_name : "zmoa",
-          //   user_email : "a.ranzmaier@gmail.com"
-          // });
-
-          var user = await apiClient.user.me();
-          document.getElementById("user_name").innerHTML = user.user_name;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
         }
-      }
     </script>
-  </body>
+</head>
+<body class="d-flex flex-column">
+<div class="container py-2">
+    <nav class="row">
+        <div class="col-6 d-flex align-items-center">
+            Benutzer1
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button class="btn btn-primary">Login</button>
+        </div>
+    </nav>
+</div>
+
+<div class="flex-grow-1 home-container">
+    <div class="container home-container__inner w-100 h-100">
+        <main class="d-flex flex-column h-100 py-5">
+            <div class="event-buttons d-flex flex-column gap-2">
+                <a class="btn btn-primary" href="/event/create-event">Event Erstellen</a>
+                <a class="btn btn-primary" href="/event/join-event">Event Beitreten</a>
+            </div>
+            <div class="parcour-buttons d-flex flex-column gap-2 mt-auto">
+                <a class="btn btn-primary">Parkour Erstellen</a>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="/assets/plugins/jquery/jquery.min.js"></script>
+<script src="/assets/plugins/bootstrap/bootstrap.min.js"></script>
+</body>
 </html>

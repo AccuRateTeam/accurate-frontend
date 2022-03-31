@@ -27,17 +27,17 @@
 
 
     window.onload = () => {
-        const socket = io('http://127.0.0.1:4000?authorization=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVBaDlsaHBwTi1wMC1NX3h1SDV6ayJ9.eyJpc3MiOiJodHRwczovL2Rldi10aHpvYmJmci51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjIxZjdiZTM2ZmY3ODkwMDY4NWM2YjVlIiwiYXVkIjpbImh0dHBzOi8vd3d3LmFjY3VyYXRlLmNvbS8iLCJodHRwczovL2Rldi10aHpvYmJmci51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjQ3NTkxMzg5LCJleHAiOjE2NDc2Nzc3ODksImF6cCI6IkxQRGtweWNiY1E2amhOdUJwazIzMXM3M3R2NWpON1BKIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCJ9.N8xXgWsUuD5SdSg5RrlXte6q7fvg99RcWaVZT-ecw_FtiCAk7jBpBubmKiS9a60uckCXU-eKinq8EykXFpz_HY8Lc3aA_qZGlD5Pcz3oyidq5NCT5fECnGspkudWOWVyBnqxjceFdhaffqY_l3ccLn1gPP9VEg_B5KJwDhYhSjDEooftKAIldOR7Vmgcxz_-qGBV5cR_NoyMLWlmjp4qsGetu07sXem7Xif6UEAFPbs0nzzb5aRDX9fNdBPhfhWK7omTF1RCsgWqwWSeU6PEOpb-84vu7DyEcA8aw556LBNOq4u4v9VgUINqY3poWJIzPGAW1_rSUSIlL4vm0Db4uA');
+        const socket = io('http://127.0.0.1:4000?authorization=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVBaDlsaHBwTi1wMC1NX3h1SDV6ayJ9.eyJpc3MiOiJodHRwczovL2Rldi10aHpvYmJmci51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDU3MjA4NTUyNjgyNTc1ODg5NTciLCJhdWQiOlsiaHR0cHM6Ly93d3cuYWNjdXJhdGUuY29tLyIsImh0dHBzOi8vZGV2LXRoem9iYmZyLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NDc2MjYwNjUsImV4cCI6MTY0NzcxMjQ2NSwiYXpwIjoiTFBEa3B5Y2JjUTZqaE51QnBrMjMxczczdHY1ak43UEoiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIn0.BscGLSZKUPh_Of5LXD-HAuCvMKR2-H-UGGPNqXyEjErD9-cuP2CiGrOnfqObHYB9zs3vbYSY25n4vIb8YOWkCqZHqc6UMygifyek86HrLaWpAqAtF3R0GlYEu6BbW-FJFdnvfBcT6H85YJZlkOLzqRbuwJI-DAW0UsIvtqd_oeLcVeSM1U4EQZBI1JA6YMtVjaHeNE9m4jv2ybNiU_itfiMx3HrbXEUPimJJvnlSuu7XaBnIE3movyLf-KFjb3SRgRDydwxyio8r042MixJ7pW45597jf9y7-U6ZIt-_7vj4dwDn8D5TaVGN1VtrwkByw1FKDu5Y6PaXtRdiZLXaMA');
 
         document.querySelector('.join-event').onclick = () => {
             socket.emit('event.room.join', {
-                eventId: 'cl0wc4jc700085m2o3f64gr6t'
+                event_id: 'cl0wqe3gt00411zq7iptelta4'
             });
         };
 
         document.querySelector('.leave-event').onclick = () => {
             socket.emit('event.room.leave', {
-                eventId: 'cl0wc4jjoinc700085m2o3f64gr6t'
+                event_id: 'cl0wqe3gt00411zq7iptelta4'
             });
         };
 

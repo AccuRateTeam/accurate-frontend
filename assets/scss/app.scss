@@ -1,0 +1,28 @@
+@import "variables";
+@import "bootstrap/bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.btn {
+  &-primary {
+    color: #fff !important;
+  }
+}
+
+.home-container {
+  background-image: url('../img/home.jpg');
+  background-position: center;
+  background-size: cover;
+
+  &__inner {
+    background-color: rgba(0, 0, 0, .3);
+  }
+}
