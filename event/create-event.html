@@ -6,26 +6,14 @@
     <title>PPArchery</title>
 
     <link rel="stylesheet" href="/assets/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/plugins/slim-select/slim-select.min.css">
     <link rel="stylesheet" href="/assets/css/app.css">
-
-    <script src="/assets/plugins/tailwind/tailwind.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="d-flex flex-column">
 <div class="container py-2 shadow-sm">
     <nav class="row">
         <div class="col-6 d-flex align-items-center">
-            Benutzer1
+            <img src="/assets/img/logo.svg" wi alt="">
         </div>
         <div class="col-6 d-flex justify-content-end">
             <button class="btn btn-primary">Login</button>
@@ -35,15 +23,19 @@
 
 <div class="flex-grow-1">
     <div class="container w-100 h-100">
-        <main class="d-flex flex-column h-100 py-5">
-            <form action="">
+        <main class="d-flex flex-column h-100 py-4">
+            <form action="" class="h-100">
+                <div class="mb-4 text-center">
+                    <h1>Event Erstellen</h1>
+                </div>
+
                 <div class="form-group mb-3">
-                    <label for="title">Event Name</label>
+                    <label for="title" class="small">Event Name</label>
                     <input type="text" class="form-control" name="title" id="title">
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="parcour">Parkour Auswahl</label>
+                    <label for="parcour" class="small">Parkour Auswahl</label>
                     <select name="parcour" id="parcour" class="form-control">
                         <option selected disabled>-- Parkour wählen --</option>
                         <option value="1">Ampfelwang</option>
@@ -52,7 +44,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="scoring">Scoringsystem</label>
+                    <label for="scoring" class="small">Scoringsystem</label>
                     <select name="scoring" id="scoring" class="form-control">
                         <option selected disabled>-- System wählen --</option>
                         <option value="1">Dreipfeilwertung</option>
@@ -62,7 +54,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="distance">Pflock</label>
+                    <label for="distance" class="small">Pflock</label>
                     <select name="distance" id="distance" class="form-control">
                         <option selected disabled>-- Pflock wählen --</option>
                         <option value="1">Rot</option>
@@ -72,8 +64,14 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="title">Einladungs-Code</label>
+                    <label for="title" class="small">Einladungs-Code</label>
                     <input type="text" class="form-control" name="inviteCode" id="inviteCode">
+                </div>
+
+                <div class="d-flex flex-column mt-5">
+                    <button class="btn btn-primary">
+                        Erstellen
+                    </button>
                 </div>
             </form>
         </main>
