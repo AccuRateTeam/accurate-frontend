@@ -1,4 +1,4 @@
-
+<?php
 $routes = [
     '/' => './pages/home.php',
     '/event/event-erstellen' => './pages/event/create-event.php',
@@ -7,7 +7,7 @@ $routes = [
     '/parkour/parkour-erstellen' => './pages/parcour/create-parcour.php',
     '/profil/profil-erstellen' => './pages/user/create-profile.php',
 ];
-$page = (isset($_GET['page']) ? '/' . rtrim($_GET['page']) : '/');
+$page = isset($_GET['page']) ? '/' . rtrim($_GET['page']) : '/';
 
 if (!isset($routes[$page])) {
     $page = '/';
