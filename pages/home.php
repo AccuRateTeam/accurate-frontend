@@ -7,6 +7,7 @@
             </div>
             <div class="parcour-buttons d-flex flex-column gap-2 mt-auto">
                 <a class="btn btn-primary" href="/parkour/parkour-erstellen">Parkour Erstellen</a>
+                <a class="btn btn-primary" href="/event/event-endscreen">Endscreen Test</a>
             </div>
         </main>
     </div>

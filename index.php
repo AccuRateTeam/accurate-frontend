@@ -6,6 +6,7 @@ $routes = [
     '/event/event-uebersicht' => './pages/event/event-overview.php',
     '/parkour/parkour-erstellen' => './pages/parcour/create-parcour.php',
     '/profil/profil-erstellen' => './pages/user/create-profile.php',
+    '/event/event-endscreen' => './pages/event/event-endscreen.php',
 ];
 $page = isset($_GET['page']) ? '/' . rtrim($_GET['page']) : '/';
 
