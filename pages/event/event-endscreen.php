@@ -6,37 +6,34 @@
                     <h1 class="m-0 text-white">Endscreen</h1>
                 </div>
             </div>
-
-
-            <div class="d-flex flex-column mt-4">
-                <button class="btn btn-primary">
-                    zurück zum Start
-                </button>
-            </div>
+            <ul>
+                <!--
+                    Estellen von liste based on Parcour teilnehmer und deren Scores 
+                    href zur neuen Seite falls wir personeneigene Daten auch machen wollen
+                -->
+                <div id="Ranking" style="">
+                    <table id="Ranking" class="table-striped table-bordered nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th >Rank</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td href = "">Hans</td>
+                                <td>125</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ul>
         </form>
     </main>
 </div>
 <script>
-    //api.addEventListener('ready', async ({detail: apiClient}) => {
-    //     // fetch parcours
-    //     const parcours = await apiClient.parcour.list();
-    //     parcours.forEach((parcour) => {
-    //         $('#parcour').append($(`<option value="${parcour.parcour_id}">${parcour.parcour_name}</option>`));
-    //     });
-
-    //     // handle form submit
-    //     $('#createEventForm').on('submit', (e) => {
-    //         e.preventDefault();
-
-            // create event and redirect
-    //         apiClient.event.create({
-    //             event_name: $('[name=event_name]').val(),
-    //             parcour_id: $('[name=parcour]').val()
-    //         }).then((event) => {
-    //             window.location.href = '/event/event-uebersicht?id=' + event.event_id
-    //         }).catch((err) => {
-    //             toastr.error(err.response.data.message);
-    //         });
-    //     });
-    // });
+    // Automatisches erstellen des tr inhaltes
+    // maybe mit hrefs auf die player einzelseite 
 </script>
