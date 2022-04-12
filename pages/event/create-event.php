@@ -25,7 +25,6 @@
                     <option selected disabled>-- System wählen --</option>
                     <option value="1">Dreipfeilwertung</option>
                     <option value="2">Zweipfeilwertung</option>
-                    <option value="2">Offizielles IBO Scoring</option>
                 </select>
             </div>
 
