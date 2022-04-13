@@ -36,4 +36,13 @@
 <script>
     // Automatisches erstellen des tr inhaltes
     // maybe mit hrefs auf die player einzelseite 
+    const updateEventDetails = (_event) => {
+        // $('#eventName').text(_event.event_name);
+        // $('#parcourName').text(_event.parcour.parcour_name);
+
+        $('#memberList').html('');
+        // _event.event_user.forEach((event_user) => {
+        //     $('#memberList').append(`<div class="small py-1">${event_user.user.user_name}</div>`)
+        // });
+    }
 </script>

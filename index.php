@@ -7,6 +7,7 @@ $routes = [
     '/parkour/parkour-erstellen' => './pages/parcour/create-parcour.php',
     '/profil/profil-erstellen' => './pages/user/create-profile.php',
     '/event/event-endscreen' => './pages/event/event-endscreen.php',
+    '/event/event-main' => './pages/event/event-main.php'
 ];
 $page = isset($_GET['page']) ? '/' . rtrim($_GET['page']) : '/';
 
@@ -23,6 +24,8 @@ if (!isset($routes[$page])) {
 
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="/assets/plugins/swiper/swiper.css" />
+    <script src="/assets/plugins/swiper/swiper.js"></script>
 
     <script src="/assets/plugins/jquery/jquery.min.js"></script>
     <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
