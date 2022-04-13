@@ -2,7 +2,7 @@
     <main class="d-flex flex-column h-100 bg-white">
         <div class="my-3 text-center bg-theme rounded overflow-hidden">
             <div class="py-5 bg-overlay">
-                <h1 class="m-0 text-white" id="eventName">Mein Event</h1>
+                <h1 class="m-0 text-white" id="eventName"></h1>
                 <small id="parcourName" class="text-white"></small>
             </div>
         </div>
@@ -10,14 +10,7 @@
         <div class="mb-2">
             <label class="small fw-bold">Scoringsystem</label>
             <div>
-                <small>Dreipfeilwertung</small>
-            </div>
-        </div>
-
-        <div class="mb-2">
-            <label class="small fw-bold">Pflock</label>
-            <div>
-                <small>Rot</small>
+                <small id="scoringSystem"></small>
             </div>
         </div>
 
@@ -34,6 +27,9 @@
     const updateEventDetails = (_event) => {
         $('#eventName').text(_event.event_name);
         $('#parcourName').text(_event.parcour.parcour_name);
+        $('#scoringSystem').text({
+            DREIPFEIL: 'Dreipfeilwertung'
+        }[_event.event_scoringsystem]);
 
         $('#memberList').html('');
         _event.event_user.forEach((event_user) => {
