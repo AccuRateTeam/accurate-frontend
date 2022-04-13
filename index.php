@@ -48,9 +48,10 @@ if (!isset($routes[$page])) {
         <div class="col-6 d-flex justify-content-end">
             <div class="auth-wrapper">
                 <button class="btn btn-primary login-button">Login</button>
-                <small>
-                    <span class="username" style="display:none"></span><a class="logout-button text-reset text-decoration-none"> <span class="text-primary">Logout</span></a>
-                </small>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="username" style="display:none"></span>
+                    <button class="btn btn-primary logout-button">Logout</button>
+                </div>
             </div>
         </div>
     </nav>

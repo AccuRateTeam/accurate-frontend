@@ -23,8 +23,7 @@
                 <label for="scoring" class="small fw-bold">Scoringsystem</label>
                 <select name="scoring" id="scoring" class="form-control">
                     <option selected disabled>-- System wählen --</option>
-                    <option value="1">Dreipfeilwertung</option>
-                    <option value="2">Zweipfeilwertung</option>
+                    <option value="DREIPFEIL">Dreipfeilwertung</option>
                 </select>
             </div>
 
@@ -51,7 +50,8 @@
             // create event and redirect
             apiClient.event.create({
                 event_name: $('[name=event_name]').val(),
-                parcour_id: $('[name=parcour]').val()
+                parcour_id: $('[name=parcour]').val(),
+                scoring_system: $('[name=scoring]').val()
             }).then((event) => {
                 window.location.href = '/event/event-uebersicht?id=' + event.event_id
             }).catch((err) => {
