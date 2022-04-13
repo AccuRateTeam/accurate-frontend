@@ -31,7 +31,6 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Distanzen</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -59,7 +58,7 @@
         const updateTable = () => {
             $('.target-table tbody').html('');
             targets.forEach((target, i) => {
-                $('.target-table tbody').append(`<tr><td>${target.name}</td><td>${[target.distance_1, target.distance_2, target.distance_3].join(', ')}</td><td><a href="#" onclick="removeTarget(${i})"/>Entfernen</td></tr>`);
+                $('.target-table tbody').append(`<tr><td>${target.name}</td><td><a href="#" onclick="removeTarget(${i})"/>Entfernen</td></tr>`);
             });
         }
 
@@ -82,7 +81,9 @@
         });
 
         // handle form submit
+        console.log("foo");
         $('#createParcourForm').on('submit', (e) => {
+            
             e.preventDefault();
 
             apiClient.parcour.create({

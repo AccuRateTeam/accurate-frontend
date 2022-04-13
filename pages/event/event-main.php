@@ -62,40 +62,30 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
+            
         </div>
         <div class="swiper-pagination"></div>
     </div>
 
     <!-- Initialize Swiper -->
     <script>
-        $(function(){
-            var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-        })
-
      // responsive loading of all targets
      api.addEventListener('ready', async ({detail: apiClient}) => {
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id') ?? '';
 
         const scoreboard = await apiClient.event.scoreboard(id);
-        console.log(scoreboard);
-     });
+        scoreboard.targets.forEach(function(target){
+            $(".swiper-wrapper").append($("<div class='swiper-slide'>"+target+"</div>"))
+        })
 
-     
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+      });
     </script>
 </body>
 </html>
