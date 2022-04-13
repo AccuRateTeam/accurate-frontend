@@ -21,21 +21,6 @@
                 <input type="text" class="form-control" name="target_name" id="target_name" placeholder="Rotfuchs">
             </div>
 
-            <div class="form-group mb-2">
-                <label for="distance_1" class="small fw-bold">1. Distanz</label>
-                <input type="text" class="form-control" name="distance_1" id="distance_1" placeholder="25m">
-            </div>
-
-            <div class="form-group mb-2">
-                <label for="distance_2" class="small fw-bold">2. Distanz</label>
-                <input type="text" class="form-control" name="distance_2" id="distance_2" placeholder="50m">
-            </div>
-
-            <div class="form-group mb-2">
-                <label for="distance_3" class="small fw-bold">3. Distanz</label>
-                <input type="text" class="form-control" name="distance_3" id="distance_3" placeholder="75m">
-            </div>
-
             <div class="d-flex flex-column my-3">
                 <button class="btn btn-outline-primary" id="addTarget" type="button">
                     Hinzufügen
@@ -85,24 +70,15 @@
         $('#addTarget').on('click', () => {
             const elements = {
                 name: $('[name=target_name]'),
-                distance_1: $('[name=distance_1]'),
-                distance_2: $('[name=distance_2]'),
-                distance_3: $('[name=distance_3]'),
             };
             const target = {
                 name: elements.name.val(),
-                distance_1: elements.distance_1.val(),
-                distance_2: elements.distance_2.val(),
-                distance_3: elements.distance_3.val(),
             };
 
             targets.push(target);
             updateTable();
 
             elements.name.val('');
-            elements.distance_1.val('');
-            elements.distance_2.val('');
-            elements.distance_3.val('');
         });
 
         // handle form submit
@@ -115,9 +91,6 @@
                 targets.forEach(async (target) => {
                     await apiClient.target.create({
                         target_name: target.name,
-                        target_distance1: parseInt(target.distance_1.replace(/\D/g,'')),
-                        target_distance2: parseInt(target.distance_2.replace(/\D/g,'')),
-                        target_distance3: parseInt(target.distance_3.replace(/\D/g,'')),
                     });
                 });
 
