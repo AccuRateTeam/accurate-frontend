@@ -58,7 +58,7 @@
         const updateTable = () => {
             $('.target-table tbody').html('');
             targets.forEach((target, i) => {
-                $('.target-table tbody').append(`<tr><td>${target.name}</td><td><a href="#" onclick="removeTarget(${i})"/>Entfernen</td></tr>`);
+                $('.target-table tbody').append(`<tr><td>${target}</td><td><a href="#" onclick="removeTarget(${i})"/>Entfernen</td></tr>`);
             });
         }
 
@@ -70,31 +70,22 @@
             const elements = {
                 name: $('[name=target_name]'),
             };
-            const target = {
-                name: elements.name.val(),
-            };
-
-            targets.push(target);
+            targets.push(elements.name.val());
             updateTable();
 
             elements.name.val('');
         });
 
         // handle form submit
-        console.log("foo");
         $('#createParcourForm').on('submit', (e) => {
-            
             e.preventDefault();
 
             apiClient.parcour.create({
                 parcour_name: $('[name=parcour_name]').val(),
+                targets: targets.map((item) => ({
+                    target_name: item
+                }))
             }).then((parcour) => {
-                targets.forEach(async (target) => {
-                    await apiClient.target.create({
-                        target_name: target.name,
-                    });
-                });
-
                 toastr.success('Parkour wurd erfolgreich erstellt.');
                 setTimeout(() => window.location.href = '/', 1000);
             }).catch((err) => {
