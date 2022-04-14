@@ -6,7 +6,6 @@
     <title>Swiper demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-
     <!-- Demo styles -->
     <style>
         html,
@@ -62,30 +61,33 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            
+
         </div>
         <div class="swiper-pagination"></div>
     </div>
 
     <!-- Initialize Swiper -->
     <script>
-     // responsive loading of all targets
-     api.addEventListener('ready', async ({detail: apiClient}) => {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id') ?? '';
+        // responsive loading of all targets
+        api.addEventListener('ready', async ({
+            detail: apiClient
+        }) => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id') ?? '';
 
-        const scoreboard = await apiClient.event.scoreboard(id);
-        scoreboard.targets.forEach(function(target){
-            $(".swiper-wrapper").append($("<div class='swiper-slide'>"+target+"</div>"))
-        })
+            const scoreboard = await apiClient.event.scoreboard(id);
+            scoreboard.targets.forEach(function(target) {
+                $(".swiper-wrapper").append($("<div class='swiper-slide'>" + target + "</div>"))
+            })
 
-        var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
         });
-      });
     </script>
 </body>
+
 </html>
