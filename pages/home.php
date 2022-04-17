@@ -9,6 +9,7 @@
                 <a class="btn btn-primary" href="/parkour/parkour-erstellen">Parkour Erstellen</a>
                 <a class="btn btn-primary" href="/event/event-endscreen">Endscreen Test</a>
                 <a class="btn btn-primary" href="/event/event-main">Main Test</a>
+                <a class="btn btn-primary" href="/target-test">Ziel Test</a>
             </div>
         </main>
     </div>

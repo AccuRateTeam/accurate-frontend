@@ -7,7 +7,8 @@ $routes = [
     '/parkour/parkour-erstellen' => './pages/parcour/create-parcour.php',
     '/profil/profil-erstellen' => './pages/user/create-profile.php',
     '/event/event-endscreen' => './pages/event/event-endscreen.php',
-    '/event/event-main' => './pages/event/event-main.php'
+    '/event/event-main' => './pages/event/event-main.php',
+    '/target-test' => './pages/target.php'
 ];
 $page = isset($_GET['page']) ? '/' . rtrim($_GET['page']) : '/';
 
@@ -34,6 +35,7 @@ if (!isset($routes[$page])) {
     <script src="/assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="/assets/js/accurate-sdk.min.js"></script>
     <script src="/assets/js/app.js"></script>
+    <link rel="stylesheet" href="/assets/css/target.css">
 </head>
 <body class="d-flex flex-column">
 <div class="loader">
@@ -61,7 +63,7 @@ if (!isset($routes[$page])) {
 </div>
 
 <div class="flex-grow-1">
-    <div class="bg-white w-100 h-100">
+    <div class="w-100 h-100">
         <?php include $routes[$page] ?>
     </div>
 </div>
