@@ -24,6 +24,7 @@
                 <select name="scoring" id="scoring" class="form-control">
                     <option selected disabled>-- System wählen --</option>
                     <option value="DREIPFEIL">Dreipfeilwertung</option>
+                    <option value="ZWEIPFEIL">Zweipfeilwertung</option>
                 </select>
             </div>
 

@@ -19,7 +19,7 @@
         </div>
 
         <div class="d-flex flex-column mt-3">
-            <button class="btn btn-primary">Event starten</button>
+            <a class="btn btn-primary" id="startButton">Event starten</a>
         </div>
     </main>
 </div>
@@ -30,6 +30,7 @@
         $('#scoringSystem').text({
             DREIPFEIL: 'Dreipfeilwertung'
         }[_event.event_scoringsystem]);
+        $('#startButton').attr('href', '/event/event-main?id=' + _event.event_id);
 
         $('#memberList').html('');
         _event.event_user.forEach((event_user) => {
