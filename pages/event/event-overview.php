@@ -14,6 +14,13 @@
             </div>
         </div>
 
+        <div class="mb-2">
+            <label class="small fw-bold">Einladungscode</label>
+            <div>
+                <small id="inviteCode"></small>
+            </div>
+        </div>
+
         <small class="mb-1 fw-bold">Bereits beigetreten</small>
         <div class="border rounded px-3 py-1" id="memberList">
         </div>
@@ -27,8 +34,10 @@
     const updateEventDetails = (_event) => {
         $('#eventName').text(_event.event_name);
         $('#parcourName').text(_event.parcour.parcour_name);
+        $('#inviteCode').text(_event.event_invite_code);
         $('#scoringSystem').text({
-            DREIPFEIL: 'Dreipfeilwertung'
+            DREIPFEIL: 'Dreipfeilwertung',
+            ZWEIPFEIL: 'Zweipfeilwertung',
         }[_event.event_scoringsystem]);
         $('#startButton').attr('href', '/event/event-main?id=' + _event.event_id);
 

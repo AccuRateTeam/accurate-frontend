@@ -9,19 +9,19 @@
 
             <div class="form-group mb-2">
                 <label for="event_name" class="small fw-bold">Event Name</label>
-                <input type="text" class="form-control" name="event_name" id="event_name">
+                <input type="text" class="form-control" name="event_name" id="event_name" required>
             </div>
 
             <div class="form-group mb-2">
                 <label for="parcour" class="small fw-bold">Parkour Auswahl</label>
-                <select name="parcour" id="parcour" class="form-control">
+                <select name="parcour" id="parcour" class="form-control" required>
                     <option selected disabled>-- Parkour wählen --</option>
                 </select>
             </div>
 
             <div class="form-group mb-2">
                 <label for="scoring" class="small fw-bold">Scoringsystem</label>
-                <select name="scoring" id="scoring" class="form-control">
+                <select name="scoring" id="scoring" class="form-control" required>
                     <option selected disabled>-- System wählen --</option>
                     <option value="DREIPFEIL">Dreipfeilwertung</option>
                     <option value="ZWEIPFEIL">Zweipfeilwertung</option>

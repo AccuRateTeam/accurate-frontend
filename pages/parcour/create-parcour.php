@@ -9,7 +9,7 @@
 
             <div class="form-group mb-2">
                 <label for="parcour_name" class="small fw-bold">Parkour Name</label>
-                <input type="text" class="form-control" name="parcour_name" id="parcour_name" placeholder="Mein Parkour">
+                <input type="text" class="form-control" name="parcour_name" id="parcour_name" placeholder="Mein Parkour" required>
             </div>
 
             <hr/>
