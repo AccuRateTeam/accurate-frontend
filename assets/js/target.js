@@ -131,9 +131,6 @@ function generateTargetHtml(id) {
 <img alt="snowballAppear" id="x2" height="16px" width="16px" style="display: none;position: absolute" src="/assets/img/x.png"/>
 <img alt="snowballAppear" id="x3" height="16px" width="16px" style="display: none;position: absolute" src="/assets/img/x.png"/>
 
-
-<center><textarea id="pointsbanged"></textarea></center>
-
 <div class="dual-btn-container">
     <button disabled class="btn-next-arrow dual-color-btn dual-color-green shine-hope-anim"><i>NÄCHSTER PFEIL</i></button>
 </div>
@@ -142,7 +139,7 @@ function generateTargetHtml(id) {
 <script>
     (function () {
         const targetId = '${id}';
-        const targetEl = $('.target[data-id=' + targetId + ']');
+        const targetEl = $('.target[data-id="' + targetId + '"]');
         const scoringSystem = window._event.event_scoringsystem;
         let score = 0;
         
@@ -178,7 +175,6 @@ function generateTargetHtml(id) {
             score = $(this).data('value');
             
             // enable button
-            targetEl.find('#pointsbanged').val('Arrow: ' + window.arrowNumber + '; Score: ' + score);
             targetEl.find('.btn-next-arrow').removeAttr('disabled');
             
             // position x
