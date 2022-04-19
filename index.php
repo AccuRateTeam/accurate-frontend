@@ -8,6 +8,7 @@ $routes = [
     '/profil/profil-erstellen' => './pages/user/create-profile.php',
     '/event/event-endscreen' => './pages/event/event-endscreen.php',
     '/event/event-main' => './pages/event/event-main.php',
+    '/event/event-endscreen-overview' => './pages/event/event-endscreen-overview.php',
     '/target-test' => './pages/target.php'
 ];
 $page = isset($_GET['page']) ? '/' . rtrim($_GET['page']) : '/';
